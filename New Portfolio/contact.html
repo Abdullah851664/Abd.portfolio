@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form with WhatsApp</title>
+</head>
+<body>
+  <h2>Contact Me</h2>
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required><br><br>
+    <input type="email" id="email" placeholder="Your Email" required><br><br>
+    <textarea id="msg" placeholder="Your Message" required></textarea><br><br>
+    <button type="submit">Send on WhatsApp</button>
+  </form>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+      e.preventDefault(); // form ka default action band kar do
+
+      // yahan apna WhatsApp number dalna hai (country code ke sath)
+      let phone = "+92 314 6514162";  
+
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let message = document.getElementById("msg").value;
+
+      // text format WhatsApp ke liye
+      let text = New Portfolio Inquiry:%0AName: ${name}%0AEmail: ${email}%0AMessage: ${message};
+
+      // WhatsApp link open karega
+      let url = https://wa.me/${phone}?text=${text};
+      window.open(url, "_blank");
+    });
+  </script>
+</body>
+</html>
